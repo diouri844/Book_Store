@@ -1,9 +1,13 @@
 const graphql = require('graphql');
 
-const  { GraphQLObjectType, GraphQLString, GraphQLSchema } =  graphql;
+const  { GraphQLObjectType,
+        GraphQLString,
+        GraphQLSchema,
+        GraphQLID
+       } =  graphql;
 
 const BookType =  require('./Book');
-
+const AuthorType = require('./Author');
 
 //* create my root query :
 // a root query is all the query that can i make
@@ -17,12 +21,22 @@ const RootQuery = new GraphQLObjectType({
       type : BookType,
       args:{
         // list of allowed args :
-        id : {type :GraphQLString }
+        id : {type :GraphQLID }
       },
       resolve(parent,args){
-        // query provider
+        // query provider : this is the function fired when i
+        // have query about a Book:
       }
-     }
+    },
+    Author:{
+      type:AuthorType,
+      args:{
+        id:{type:GraphQLID}
+      },
+      resolve(parent,args){
+        // handel auther query :
+      }
+    }
   }
 });
 
