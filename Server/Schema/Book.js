@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 
-const  { GraphQLObjectType, GraphQLString } =  graphql;
+const  { GraphQLObjectType, GraphQLString, GraphQLID } =  graphql;
 
 
 // designe my book schema :
@@ -8,7 +8,7 @@ const  { GraphQLObjectType, GraphQLString } =  graphql;
 const BookType = new GraphQLObjectType({
   name:"Book",
   fields:()=>({
-    id:{type:GraphQLString},
+    id:{type:GraphQLID},
     name:{type:GraphQLString},
     genre:{type:GraphQLString}
   })
